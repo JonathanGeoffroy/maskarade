@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwwwtcuj2yq0o"]
+
+[ext_resource type="Script" uid="uid://ipobwqs74i35" path="res://deck/card.gd" id="1_lxaby"]
+[ext_resource type="Texture2D" uid="uid://dl3xhmk8tsoqo" path="res://assets/card.png" id="2_d42ut"]
+[ext_resource type="Texture2D" uid="uid://bjly7062y4p3l" path="res://assets/eye_atk.png" id="3_o31wq"]
+
+[node name="Card" type="Node2D"]
+z_index = 1
+script = ExtResource("1_lxaby")
+
+[node name="CardImage" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_d42ut")
+centered = false
+
+[node name="MaskImage" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_o31wq")
+centered = false

@@ -13,23 +13,29 @@ script = ExtResource("1_ofi71")
 
 [node name="Body" type="Sprite2D" parent="."]
 texture = ExtResource("1_og6u6")
+centered = false
 
 [node name="LeftEye" type="Sprite2D" parent="."]
-position = Vector2(-103, -71)
+position = Vector2(53, 61)
 texture = ExtResource("2_ofi71")
+centered = false
 
 [node name="RightEye" type="Sprite2D" parent="."]
-position = Vector2(89, -69)
+position = Vector2(226, 68)
 texture = ExtResource("3_8rt22")
+centered = false
 
 [node name="LeftJowl" type="Sprite2D" parent="."]
-position = Vector2(-128, 16)
+position = Vector2(34, 157)
 texture = ExtResource("4_5duwq")
+centered = false
 
 [node name="RightJowl" type="Sprite2D" parent="."]
-position = Vector2(120, 17)
+position = Vector2(293, 156)
 texture = ExtResource("5_eyix7")
+centered = false
 
 [node name="Mouth" type="Sprite2D" parent="."]
-position = Vector2(0, 105)
+position = Vector2(72, 295)
 texture = ExtResource("6_37jmv")
+centered = false

@@ -25,10 +25,8 @@ func _init_grid():
 		for c in range(COLS):
 			mask = mask_scene.instantiate()
 			mask.scale = Vector2(width / Mask.SIZE, height / Mask.SIZE)
-			var mask_width = mask.SIZE * mask.scale.x;
-			var mask_height = mask.SIZE * mask.scale.y;
 			
-			mask.position = Vector2(c * width + mask_width / 2, r * height + mask_height / 2)
+			mask.position = Vector2(c * width, r * height)
 			add_child(mask)
 			row_arr.append(mask)
 		grid.append(row_arr)

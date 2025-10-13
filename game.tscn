@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d10njt6vcd5ub"]
+[gd_scene load_steps=3 format=3 uid="uid://d10njt6vcd5ub"]
 
 [ext_resource type="PackedScene" uid="uid://bm74wrnjb384a" path="res://grid.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://ddruaetwe8du3" path="res://deck/deck.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Grid" parent="." instance=ExtResource("1_80nbo")]
+
+[node name="Deck" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(0, 416)
