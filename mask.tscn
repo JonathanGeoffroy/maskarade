@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxlopho8io3wg"]
+
+[ext_resource type="Script" uid="uid://b5joavy7ceses" path="res://mask.gd" id="1_ofi71"]
+[ext_resource type="Texture2D" uid="uid://dn0h38buwskda" path="res://assets/mask.png" id="1_og6u6"]
+[ext_resource type="Texture2D" uid="uid://bjly7062y4p3l" path="res://assets/eye_atk.png" id="2_ofi71"]
+[ext_resource type="Texture2D" uid="uid://6bjppdjomxo5" path="res://assets/eye_def.png" id="3_8rt22"]
+[ext_resource type="Texture2D" uid="uid://bsktjue8d6py3" path="res://assets/jowl-plus.png" id="4_5duwq"]
+[ext_resource type="Texture2D" uid="uid://jvvkgs7jnekx" path="res://assets/jown_minus.png" id="5_eyix7"]
+[ext_resource type="Texture2D" uid="uid://cpef0gme3mujq" path="res://assets/mouth.png" id="6_37jmv"]
+
+[node name="Mask" type="Node2D"]
+script = ExtResource("1_ofi71")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_og6u6")
+
+[node name="LeftEye" type="Sprite2D" parent="."]
+position = Vector2(-103, -71)
+texture = ExtResource("2_ofi71")
+
+[node name="RightEye" type="Sprite2D" parent="."]
+position = Vector2(89, -69)
+texture = ExtResource("3_8rt22")
+
+[node name="LeftJowl" type="Sprite2D" parent="."]
+position = Vector2(-128, 16)
+texture = ExtResource("4_5duwq")
+
+[node name="RightJowl" type="Sprite2D" parent="."]
+position = Vector2(120, 17)
+texture = ExtResource("5_eyix7")
+
+[node name="Mouth" type="Sprite2D" parent="."]
+position = Vector2(0, 105)
+texture = ExtResource("6_37jmv")
