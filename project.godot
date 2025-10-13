@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 window/size/viewport_width=800
 window/size/viewport_height=600
 
+[global_group]
+
+Card=""
+Mask=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

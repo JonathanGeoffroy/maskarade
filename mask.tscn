@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxlopho8io3wg"]
+[gd_scene load_steps=9 format=3 uid="uid://dxlopho8io3wg"]
 
 [ext_resource type="Script" uid="uid://b5joavy7ceses" path="res://mask.gd" id="1_ofi71"]
 [ext_resource type="Texture2D" uid="uid://dn0h38buwskda" path="res://assets/mask.png" id="1_og6u6"]
@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://jvvkgs7jnekx" path="res://assets/jown_minus.png" id="5_eyix7"]
 [ext_resource type="Texture2D" uid="uid://cpef0gme3mujq" path="res://assets/mouth.png" id="6_37jmv"]
 
-[node name="Mask" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofi71"]
+size = Vector2(402, 404)
+
+[node name="Mask" type="Node2D" groups=["Mask"]]
 script = ExtResource("1_ofi71")
 
 [node name="Body" type="Sprite2D" parent="."]
@@ -39,3 +42,11 @@ centered = false
 position = Vector2(72, 295)
 texture = ExtResource("6_37jmv")
 centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(200, 203)
+shape = SubResource("RectangleShape2D_ofi71")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_mask_clicked"]
