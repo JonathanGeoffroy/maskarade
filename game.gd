@@ -1,8 +1,6 @@
 class_name Game
 extends Node2D
 
-
-var selected_card: Card;
 var selected_mask: Mask;
 
 
@@ -18,7 +16,3 @@ func _on_node_added(child: Node):
 
 func _on_mask_selected(mask: Mask):
 	selected_mask = mask;
-
-
-func _on_card_selected(card: Card):
-	selected_card = card;
