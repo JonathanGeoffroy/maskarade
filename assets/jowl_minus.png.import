@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsktjue8d6py3"
-path="res://.godot/imported/jowl-plus.png-8c88d21a019c6ad9378ddc04a88435fb.ctex"
+uid="uid://jvvkgs7jnekx"
+path="res://.godot/imported/jowl_minus.png-afdcc79f76bb009b0e44144f0c405f7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/jowl-plus.png"
-dest_files=["res://.godot/imported/jowl-plus.png-8c88d21a019c6ad9378ddc04a88435fb.ctex"]
+source_file="res://assets/jowl_minus.png"
+dest_files=["res://.godot/imported/jowl_minus.png-afdcc79f76bb009b0e44144f0c405f7b.ctex"]
 
 [params]
 

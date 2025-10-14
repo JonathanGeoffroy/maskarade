@@ -22,8 +22,10 @@ window/size/viewport_height=600
 
 [global_group]
 
-Card=""
 Mask=""
+Jowl=""
+Eye=""
+Mouth=""
 
 [rendering]
 

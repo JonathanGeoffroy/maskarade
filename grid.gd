@@ -3,7 +3,7 @@ extends Node2D
 
 const ROWS := 3
 const COLS := 3
-const SIZE := 400.0
+const SIZE := 600.0
 
 @export var mask_scene: PackedScene = preload("res://mask.tscn")
 
