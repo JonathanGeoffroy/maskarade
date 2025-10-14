@@ -22,10 +22,10 @@ window/size/viewport_height=600
 
 [global_group]
 
-Mask=""
 Jowl=""
 Eye=""
 Mouth=""
+Piece=""
 
 [rendering]
 

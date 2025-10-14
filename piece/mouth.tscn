@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp8636mkwywsc"]
+[gd_scene load_steps=4 format=3 uid="uid://bp8636mkwywsc"]
 
 [ext_resource type="PackedScene" uid="uid://beqncntgomyeo" path="res://piece/piece.tscn" id="1_613wf"]
 [ext_resource type="Texture2D" uid="uid://cpef0gme3mujq" path="res://assets/mouth.png" id="2_62w0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62w0a"]
+size = Vector2(257, 64)
 
 [node name="Piece" instance=ExtResource("1_613wf")]
 
 [node name="Sprite2D" parent="." index="0" groups=["Mouth"]]
 texture = ExtResource("2_62w0a")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(128.5, 33)
+shape = SubResource("RectangleShape2D_62w0a")
