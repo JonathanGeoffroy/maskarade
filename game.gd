@@ -10,8 +10,8 @@ func _enter_tree():
 
 func _on_node_added(child: Node):
 	if child.is_in_group("Piece"):
-		child.connect("piece_selected", _on_piece_selected)
+		child.connect("piece_clicked", _on_piece_clicked)
 
 
-func _on_piece_selected(piece: Piece):
+func _on_piece_clicked(piece: Piece):
 	selected_piece = piece
