@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62w0a"]
 size = Vector2(257, 64)
 
-[node name="Piece" instance=ExtResource("1_613wf")]
+[node name="Mouth" groups=["Mouth"] instance=ExtResource("1_613wf")]
 
-[node name="Sprite2D" parent="." index="0" groups=["Mouth"]]
+[node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_62w0a")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]

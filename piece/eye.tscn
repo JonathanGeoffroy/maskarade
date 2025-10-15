@@ -6,12 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dchfj"]
 size = Vector2(129, 64)
 
-[node name="Eye" instance=ExtResource("1_jd50y")]
+[node name="Eye" groups=["Eye"] instance=ExtResource("1_jd50y")]
 script = ExtResource("2_1rksh")
 kind = 0
 
 [node name="Sprite2D" parent="." index="0" groups=["Eye"]]
-unique_name_in_owner = true
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("RectangleShape2D_dchfj")
