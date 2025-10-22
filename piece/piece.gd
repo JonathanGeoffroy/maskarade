@@ -13,3 +13,11 @@ func get_size() -> Vector2:
 	var sprite = %Sprite2D
 	var texture = sprite.texture
 	return texture.get_size() * sprite.scale
+
+
+func get_mask() -> Mask:
+	return get_parent()
+
+
+func accept_exchange(piece: Piece) -> bool:
+	return piece.get_groups() == get_groups()
