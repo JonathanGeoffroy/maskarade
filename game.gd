@@ -26,20 +26,37 @@ func deselect():
 	selected_piece = null
 
 
-func exchange_pieces(first: Piece, second: Piece):
-	var first_parent := first.get_parent()
-	var second_parent := second.get_parent()
+func exchange_pieces(first: Piece, second: Piece, duration := 0.2):
+	first.z_index = 10
+	second.z_index = 10
 
-	var first_local := first.position
-	var second_local := second.position
+	var parent_first := first.get_parent()
+	var parent_second := second.get_parent()
 
-	first_parent.remove_child(first)
-	second_parent.remove_child(second)
+	var local_first := first.position
+	var local_second := second.position
 
-	first_parent.add_child(second)
-	second_parent.add_child(first)
+	var global_first := first.global_position
+	var global_second := second.global_position
 
-	second.position = first_local
-	first.position = second_local
+	parent_first.remove_child(first)
+	parent_second.remove_child(second)
+	parent_first.add_child(second)
+	parent_second.add_child(first)
+
+	first.global_position = global_first
+	second.global_position = global_second
+
+	var target_first: Vector2 = parent_second.to_global(local_second)
+	var target_second: Vector2 = parent_first.to_global(local_first)
+
+	var tween := create_tween()
+	tween.tween_property(first, "global_position", target_first, duration)
+	tween.parallel().tween_property(second, "global_position", target_second, duration)
+	tween.finished.connect(
+		func():
+			first.z_index = 0
+			second.z_index = 0
+	)
 
 	deselect()
