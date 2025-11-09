@@ -1,8 +1,6 @@
 class_name Game
 extends Node2D
 
-var selected_piece: Piece
-
 
 func _enter_tree():
 	get_tree().connect("node_added", Callable(self, "_on_node_added"))
@@ -14,16 +12,18 @@ func _on_node_added(child: Node):
 
 
 func _on_piece_clicked(piece: Piece):
+	var selected_piece = Global.selected_piece
 	if selected_piece == null:
-		selected_piece = piece
+		Global.set_selected_piece(piece)
 	elif piece == selected_piece:
-		selected_piece = null
+		deselect()
 	elif piece.accept_exchange(selected_piece):
+		deselect()
 		exchange_pieces(piece, selected_piece)
 
 
 func deselect():
-	selected_piece = null
+	Global.set_selected_piece(null)
 
 
 func exchange_pieces(first: Piece, second: Piece, duration := 0.2):

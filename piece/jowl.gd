@@ -10,6 +10,7 @@ enum JowlKind { PLUS, MINUS }
 
 
 func _ready() -> void:
+	super()
 	var kind = JowlKind.PLUS if randi_range(0, 1) == 0 else JowlKind.MINUS
 
 	%Sprite2D.texture = plus_texture if kind == JowlKind.PLUS else minus_texture

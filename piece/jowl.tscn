@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwe4x6syiburm"]
+[gd_scene load_steps=7 format=3 uid="uid://dwe4x6syiburm"]
 
 [ext_resource type="PackedScene" uid="uid://beqncntgomyeo" path="res://piece/piece.tscn" id="1_4icxe"]
 [ext_resource type="Script" uid="uid://cd576al0yrly2" path="res://piece/jowl.gd" id="2_v46qr"]
+[ext_resource type="Shader" uid="uid://xvu8vnd420p" path="res://shaders/gray.gdshader" id="3_b0nsu"]
 [ext_resource type="Texture2D" uid="uid://bsktjue8d6py3" path="res://assets/jowl_plus.png" id="3_xqxxu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0nsu"]
+resource_local_to_scene = true
+shader = ExtResource("3_b0nsu")
+shader_parameter/gray_mode = false
+shader_parameter/desaturation = 0.5
+shader_parameter/progress = 0.0
+shader_parameter/invert = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqxxu"]
 size = Vector2(69, 64)
@@ -12,6 +21,7 @@ script = ExtResource("2_v46qr")
 kind = 0
 
 [node name="Sprite2D" parent="." index="0" groups=["Jowl"]]
+material = SubResource("ShaderMaterial_b0nsu")
 texture = ExtResource("3_xqxxu")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]

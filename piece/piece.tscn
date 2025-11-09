@@ -1,16 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://beqncntgomyeo"]
+[gd_scene load_steps=9 format=3 uid="uid://beqncntgomyeo"]
 
+[ext_resource type="Shader" uid="uid://xvu8vnd420p" path="res://shaders/gray.gdshader" id="1_2eswf"]
 [ext_resource type="Script" uid="uid://csfamx6th1u2c" path="res://piece/piece.gd" id="1_6byuq"]
 [ext_resource type="Texture2D" uid="uid://bjly7062y4p3l" path="res://assets/eye_atk.png" id="1_l0ktr"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2eswf"]
+resource_local_to_scene = true
+shader = ExtResource("1_2eswf")
+shader_parameter/gray_mode = false
+shader_parameter/desaturation = 0.5
+shader_parameter/progress = 0.0
+shader_parameter/invert = false
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6byuq"]
 size = Vector2(129, 64)
+
+[sub_resource type="Animation" id="Animation_4wn1d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:gray_shader_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2eswf"]
+resource_name = "gray"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:gray_shader_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibp41"]
+_data = {
+&"RESET": SubResource("Animation_4wn1d"),
+&"gray": SubResource("Animation_2eswf")
+}
 
 [node name="Piece" type="Node2D" groups=["Piece"]]
 script = ExtResource("1_6byuq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2eswf")
 texture = ExtResource("1_l0ktr")
 centered = false
 
@@ -19,5 +66,10 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(63.5, 33)
 shape = SubResource("RectangleShape2D_6byuq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ibp41")
+}
 
 [connection signal="input_event" from="Area2D" to="." method="_on_piece_clicked"]

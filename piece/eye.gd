@@ -10,6 +10,7 @@ enum EyeKind { ATTACK, DEFENSE }
 
 
 func _ready() -> void:
+	super()
 	var kind = EyeKind.ATTACK if randi_range(0, 1) == 0 else EyeKind.DEFENSE
 
 	%Sprite2D.texture = attack_texture if kind == EyeKind.ATTACK else defense_texture
