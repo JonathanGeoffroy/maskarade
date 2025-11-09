@@ -1,4 +1,3 @@
-class_name GameFSM
 extends Node
 
 signal on_state_change(state: State)
@@ -16,7 +15,7 @@ var current_state: State = State.START
 
 
 func initialize() -> void:
-	set_current_state(State.START)
+	GameFSM.initialize()
 
 
 func set_current_state(state: State) -> void:
@@ -31,8 +30,10 @@ func next() -> void:
 			next_state = State.FIRST_PLAY
 		State.FIRST_PLAY:
 			next_state = State.FIRST_ATTACK
-		State.SECOND_PLAY:
+		State.FIRST_ATTACK:
 			next_state = State.SECOND_PLAY
+		State.SECOND_PLAY:
+			next_state = State.SECOND_ATTACK
 		State.SECOND_ATTACK:
 			next_state = State.FIRST_PLAY
 		_:

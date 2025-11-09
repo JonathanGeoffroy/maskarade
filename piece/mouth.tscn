@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp8636mkwywsc"]
+[gd_scene load_steps=7 format=3 uid="uid://bp8636mkwywsc"]
 
 [ext_resource type="PackedScene" uid="uid://beqncntgomyeo" path="res://piece/piece.tscn" id="1_613wf"]
 [ext_resource type="Shader" uid="uid://xvu8vnd420p" path="res://shaders/gray.gdshader" id="2_4c5t1"]
+[ext_resource type="Script" uid="uid://b0depymu55138" path="res://piece/mouth.gd" id="2_7x40s"]
 [ext_resource type="Texture2D" uid="uid://cpef0gme3mujq" path="res://assets/mouth.png" id="2_62w0a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7x40s"]
@@ -16,7 +17,7 @@ shader_parameter/invert = false
 size = Vector2(257, 64)
 
 [node name="Mouth" groups=["Mouth"] instance=ExtResource("1_613wf")]
-script = null
+script = ExtResource("2_7x40s")
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_7x40s")
