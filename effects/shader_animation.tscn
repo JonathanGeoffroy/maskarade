@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://rijubh526s0s"]
+
+[ext_resource type="Script" uid="uid://bsb280vn77upm" path="res://effects/shader_animation.gd" id="1_7hphj"]
+
+[sub_resource type="Animation" id="Animation_gdv1f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7hphj"]
+resource_name = "effect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gdv1f"]
+_data = {
+&"RESET": SubResource("Animation_gdv1f"),
+&"effect": SubResource("Animation_7hphj")
+}
+
+[node name="ShaderAnimation" type="Node"]
+script = ExtResource("1_7hphj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gdv1f")
+}

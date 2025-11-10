@@ -15,10 +15,6 @@ func _ready() -> void:
 	Global.connect("on_selection_change", on_selection_change)
 
 
-func _process(delta: float) -> void:
-	%Sprite2D.material.set_shader_parameter("progress", gray_shader_progress)
-
-
 func _on_piece_clicked(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		emit_signal("piece_clicked", self)
@@ -46,18 +42,6 @@ func on_selection_change(selected_piece: Piece):
 		style = Style.AVAILABLE if is_accepted else Style.UNAVAILABLE
 
 	if style == Style.NORMAL or style == Style.AVAILABLE:
-		enable()
+		%ShaderAnimation.enable();
 	else:
-		disable()
-
-
-func enable() -> void:
-	$AnimationPlayer.play(gray_animation)
-	if gray_shader_progress == 1.0:
-		$AnimationPlayer.seek($AnimationPlayer.get_animation(gray_animation).length, true)
-	$AnimationPlayer.speed_scale = -1.0
-
-
-func disable() -> void:
-	$AnimationPlayer.play(gray_animation)
-	$AnimationPlayer.speed_scale = 1.0
+		%ShaderAnimation.disable();
